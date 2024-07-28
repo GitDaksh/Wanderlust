@@ -46,6 +46,12 @@ app.post("/listings", async (req, res) => {
     let newListing = new Listing(req.body.listing);
     await newListing.save();
     res.redirect("/listings");
+});
+
+app.get("/listings/:id/edit", async (req, res) => {
+    let id = req.params.id;
+    const listing = await Listing.findById(id);
+    res.render("listings/edit.ejs", {listing});
 })
 
 // app.get("/testListing", async (req, res) => {
