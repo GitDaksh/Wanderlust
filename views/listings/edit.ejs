@@ -1,25 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wanderlust</title>
-</head>
+<% layout("/layouts/boilerplate.ejs") %>
+
 <body>
     <h3>Edit Listing</h3>
-    <form>
-        <input name = "listing[title]" value = <%=listing.title%>>
+    <form method="post" action = "/listings/<%= listing._id %>?_method=PUT">
+        <input name = "listing[title]" value = "<%=listing.title%>">
         <br><br>
-        <textarea name = "listing[description]" value = <%=listing.description%>></textarea>
+        <textarea name = "listing[description"><%=listing.description%></textarea>
         <br><br>
-        <input name = "listing[image]" value = <%=listing.image%>>
+        <input name = "listing[image]" value = "<%=listing.image%>" type = "text">
         <br><br>
-        <input name = "listing[price]" value = <%=listing.price%> type="number">
+        <input name = "listing[price]" value = "<%=listing.price%>" type="number">
         <br><br>
-        <input name = "listing[country]" value = <%=listing.country%>>
+        <input name = "listing[country]" value = "<%=listing.country%>">
         <br><br>
-        <input name = "listing[location]" value = <%=listing.location%>>
+        <input name = "listing[location]" value = "<%=listing.location%>">
         <button>Edit</button>
     </form>
 </body>
-</html>
